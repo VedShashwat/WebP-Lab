@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magazine Generator</title>
+    <style>
+        .cover-preview { border: 2px solid black; width: 300px; height: 400px; padding: 20px; text-align: center; margin-top: 20px;}
+    </style>
+</head>
+<body>
+    <h1>Create Magazine Cover</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Title Text:</label> <input type="text" name="title"><br><br>
+        <label>Background Color:</label> <input type="color" name="bg_color"><br><br>
+        <label>Font Color:</label> <input type="color" name="font_color"><br><br>
+        <label>Font Size (px):</label> <input type="number" name="font_size" value="20"><br><br>
+        <label>Font Family:</label> 
+        <select name="font_family">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+        </select><br><br>
+        <button type="submit">Generate Cover</button>
+    </form>
+
+    {% if title %}
+    <div class="cover-preview" style="background-color: {{ bg_color }};">
+        <h1 style="color: {{ font_color }}; font-size: {{ font_size }}px; font-family: {{ font_family }};">
+            {{ title }}
+        </h1>
+        <p style="color: {{ font_color }};">SPECIAL EDITION</p>
+    </div>
+    {% endif %}
+</body>
+</html>

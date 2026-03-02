@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promotion Checker</title>
+</head>
+<body>
+    <h1>Promotion Eligibility Check</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Employee ID:</label>
+            <select name="emp_id">
+                <option value="101">101 - John Doe</option>
+                <option value="102">102 - Jane Smith</option>
+                <option value="103">103 - Robert Brown</option>
+                <option value="104">104 - Emily White</option>
+            </select>
+        </p>
+        <p>
+            <label>Date of Joining:</label>
+            <input type="date" name="doj" required>
+        </p>
+        
+        <button type="submit">Am I Eligible for Promotion?</button>
+    </form>
+
+    {% if message %}
+        <h2>Eligible: <label style="font-weight: bold; color: red;">{{ message }}</label></h2>
+    {% endif %}
+</body>
+</html>

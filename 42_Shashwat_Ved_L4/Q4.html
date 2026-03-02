@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Produce Bill</title>
+<script src="jquery-4.0.0.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("#bill").click(function(){
+        var price = 0;
+        var brand = $("#brand").val();
+        var qty = parseInt($("#qty").val());
+
+        if(brand == "HP") price = 50000;
+        if(brand == "Nokia") price = 20000;
+        if(brand == "Samsung") price = 30000;
+        if(brand == "Motorola") price = 25000;
+        if(brand == "Apple") price = 80000;
+
+        if($("#mobile").is(":checked")) price += 10000;
+        if($("#laptop").is(":checked")) price += 30000;
+
+        var total = price * qty;
+        alert("Total Amount = " + total);
+    });
+});
+</script>
+</head>
+
+<body>
+Brand:
+<select id="brand">
+<option>HP</option>
+<option>Nokia</option>
+<option>Samsung</option>
+<option>Motorola</option>
+<option>Apple</option>
+</select><br><br>
+
+Products:
+<input type="checkbox" id="mobile">Mobile
+<input type="checkbox" id="laptop">Laptop<br><br>
+
+Quantity:
+<input type="text" id="qty"><br><br>
+
+<button id="bill">Produce Bill</button>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+<body>
+    <h1>Enter Student Details</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>Name: <input type="text" name="name" required></p>
+        <p>DOB: <input type="date" name="dob" required></p>
+        <p>Address: <input type="text" name="address" required></p>
+        <p>Contact: <input type="text" name="contact" required></p>
+        <p>Email: <input type="email" name="email" required></p>
+        
+        <h3>Marks</h3>
+        <p>English: <input type="number" step="0.01" name="english" required></p>
+        <p>Physics: <input type="number" step="0.01" name="physics" required></p>
+        <p>Chemistry: <input type="number" step="0.01" name="chemistry" required></p>
+        
+        <button type="submit">Submit Details</button>
+    </form>
+
+    <hr>
+    
+    <h3>Student Info:</h3>
+    <textarea rows="10" cols="50" readonly>{{ result_text }}</textarea>
+    
+    <h3>Total Percentage: <label style="color: blue;">{{ percentage }}</label></h3>
+</body>
+</html>

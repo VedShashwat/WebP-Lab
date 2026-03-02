@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Color Selector</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 40px;
+}
+
+.container {
+    width: 300px;
+}
+
+.box {
+    width: 250px;
+    height: 120px;
+    margin-top: 20px;
+    border: 2px solid black;
+}
+</style>
+
+<script>
+function changeColor(color) {
+    document.getElementById("colorBox").style.backgroundColor = color;
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h3>Select a Color</h3>
+
+    <input type="radio" name="color" onclick="changeColor('red')"> Red<br>
+    <input type="radio" name="color" onclick="changeColor('green')"> Green<br>
+    <input type="radio" name="color" onclick="changeColor('blue')"> Blue
+
+    <div class="box" id="colorBox"></div>
+</div>
+
+</body>
+</html>

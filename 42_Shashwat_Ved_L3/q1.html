@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Quiz</title>
+<style>
+body {
+    background: #eef2f3;
+    font-family: Arial;
+}
+.quiz-box {
+    width: 400px;
+    margin: 60px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px gray;
+}
+button {
+    padding: 8px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+
+<script>
+function submitQuiz() {
+    let score = 0;
+    if (document.getElementById("q1").checked) score++;
+    if (document.getElementById("q2").checked) score++;
+
+    document.getElementById("result").innerHTML =
+        "Your Score: <b>" + score + "/2</b>";
+}
+</script>
+</head>
+
+<body>
+<div class="quiz-box">
+    <h2>Online Quiz</h2>
+
+    <p>1. JavaScript is a ___ language</p>
+    <input type="radio" name="q1" id="q1"> Interpreted<br>
+    <input type="radio" name="q1"> Compiled<br>
+
+    <p>2. JavaScript runs on?</p>
+    <input type="radio" name="q2" id="q2"> Browser<br>
+    <input type="radio" name="q2"> Server only<br><br>
+
+    <button onclick="submitQuiz()">Submit</button>
+    <p id="result"></p>
+</div>
+</body>
+</html>

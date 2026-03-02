@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Font Animation</title>
+<style>
+body {
+    background: #f0f0f0;
+    font-family: Arial;
+}
+#text {
+    text-align: center;
+    margin-top: 300px;
+    font-weight: bold;
+}
+</style>
+
+<script>
+let size = 5;
+let growing = true;
+
+function animateFont() {
+    let t = document.getElementById("text");
+
+    if (growing) {
+        size++;
+        t.style.color = "red";
+        t.innerHTML = "FONT +++";
+        if (size >= 40) growing = false;
+    } else {
+        size--;
+        t.style.color = "blue";
+        t.innerHTML = "FONT ---";
+        if (size <= 5) growing = true;
+    }
+    t.style.fontSize = size + "pt";
+}
+setInterval(animateFont, 200);
+</script>
+</head>
+
+<body>
+<h1 id="text"></h1>
+</body>
+</html>

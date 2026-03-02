@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grade Calculator</title>
+<style>
+    body { 
+        background-color: #f4f7f6; 
+        font-family: sans-serif; 
+    }
+    .container {
+        width: 350px;
+        margin: 60px auto;
+        padding: 25px;
+        background: #fff;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        text-align: center;
+    }
+    input {
+        width: 90%;
+        margin: 8px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+    }
+    button {
+        width: 96%;
+        margin-top: 15px;
+        padding: 12px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+    button:hover {
+        background: #45a049;
+    }
+    #result {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        min-height: 40px;
+    }
+    /* Simple classes for dynamic colors */
+    .grade-A { color: #2ecc71; }
+    .grade-B { color: #3498db; }
+    .grade-C { color: #f39c12; }
+    .grade-D { color: #e74c3c; }
+</style>
+
+<script>
+function calculate() {
+    // Collect values and ensure they are numbers
+    let inputs = [m1.value, m2.value, m3.value, m4.value];
+    
+    // Simple check: if any input is empty, alert user
+    if (inputs.includes("")) {
+        result.innerHTML = "<span style='color:red'>Please fill all fields!</span>";
+        return;
+    }
+
+    let m = inputs.map(Number);
+    let avg = m.reduce((a, b) => a + b) / 4;
+    
+    // Determine grade and CSS class
+    let grade, colorClass;
+    if (avg >= 90) { grade = "A"; colorClass = "grade-A"; }
+    else if (avg >= 80) { grade = "B"; colorClass = "grade-B"; }
+    else if (avg >= 70) { grade = "C"; colorClass = "grade-C"; }
+    else { grade = "D"; colorClass = "grade-D"; }
+
+    // Display result with the specific color class
+    result.innerHTML = `
+        Average: <b>${avg.toFixed(2)}%</b><br>
+        Grade: <span class="${colorClass}" style="font-size: 24px; font-weight: bold;">${grade}</span>
+    `;
+}
+</script>
+</head>
+
+<body>
+<div class="container">
+    <h2>Grade Calculator</h2>
+    <input type="number" id="m1" placeholder="Subject 1 Score">
+    <input type="number" id="m2" placeholder="Subject 2 Score">
+    <input type="number" id="m3" placeholder="Subject 3 Score">
+    <input type="number" id="m4" placeholder="Subject 4 Score">
+
+    <button onclick="calculate()">Calculate Results</button>
+    <div id="result"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Birthday Card</title>
+<script src="jquery-4.0.0.min.js"></script>
+
+<style>
+#card {
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+    $("#update").click(function(){
+        $("#card").css({
+            "background-color": $("#bgcolor").val(),
+            "font-family": $("#font").val(),
+            "font-size": $("#fontsize").val() + "px",
+            "border": $("input[name='border']:checked").val()
+        });
+        $("#msg").text($("#text").val());
+    });
+});
+</script>
+</head>
+
+<body>
+Background Color:
+<select id="bgcolor">
+<option value="yellow">Yellow</option>
+<option value="pink">Pink</option>
+<option value="lightblue">Light Blue</option>
+</select><br><br>
+
+Font:
+<select id="font">
+<option>Verdana</option>
+<option>Arial</option>
+<option>Times New Roman</option>
+</select><br><br>
+
+Font Size:
+<input type="text" id="fontsize"><br><br>
+
+Border:
+<input type="radio" name="border" value="none">None
+<input type="radio" name="border" value="5px solid black">Solid
+<input type="radio" name="border" value="5px double black">Double<br><br>
+
+Message:
+<textarea id="text"></textarea><br><br>
+
+<button id="update">Update</button>
+
+<hr>
+
+<div id="card">
+    <h2 id="msg">Happy Birthday, and many more</h2>
+    <img src="cake.jpeg" width="150">
+</div>
+</body>
+</html>

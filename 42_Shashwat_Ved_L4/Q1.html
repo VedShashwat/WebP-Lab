@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Table and Image Animation</title>
+<script src="jquery-4.0.0.min.js"></script>
+<style>
+.container {
+    position: relative;
+}
+table {
+    border-collapse: collapse;
+    width: 300px;
+}
+td {
+    border: 1px solid black;
+    padding: 10px;
+}
+tr:nth-child(even) {
+    background-color: #cce5ff;
+}
+tr:nth-child(odd) {
+    background-color: #e6ffe6;
+}
+img {
+    width: 150px;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+    $("#moveBtn").click(function(){
+        $(".container").animate({left: "-=100px"}, "slow");
+    });
+});
+</script>
+</head>
+
+<body>
+<button id="moveBtn">Move Left</button>
+
+<div class="container">
+    <table>
+        <tr><td>A</td><td>B</td><td>C</td></tr>
+        <tr><td>D</td><td>E</td><td>F</td></tr>
+        <tr><td>G</td><td>H</td><td>I</td></tr>
+    </table>
+    <br>
+    <img src="cat.jpeg" alt="Sample Image">
+</div>
+</body>
+</html>

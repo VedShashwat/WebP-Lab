@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Details - Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .result-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .result-card p {
+            font-size: 18px;
+            color: #444;
+            margin: 10px 0;
+        }
+        .result-card span {
+            font-weight: bold;
+            color: #2c7be5;
+        }
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Details</h1>
+    <div class="result-card">
+        <p>Car Manufacturer: <span>{{ manufacturer }}</span></p>
+        <p>Model Name: <span>{{ model }}</span></p>
+        <a href="/car/">&#8592; Go Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Birthday Card</title>
+<script src="jquery-4.0.0.min.js"></script>
+
+<style>
+body {
+    font-family: Arial;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 900px;
+    margin: 30px auto;
+    display: flex;
+}
+
+.controls {
+    width: 40%;
+    background-color: #fff8dc;
+    padding: 20px;
+}
+
+.controls label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.controls input,
+.controls select,
+.controls textarea {
+    width: 90%;
+    margin-top: 5px;
+}
+
+.controls textarea {
+    height: 80px;
+}
+
+.controls button {
+    margin-top: 15px;
+    padding: 5px 15px;
+}
+
+.card {
+    width: 60%;
+    margin-left: 20px;
+    background-color: yellow;
+    border: 5px double black;
+    text-align: center;
+    padding: 20px;
+}
+
+.card h1 {
+    font-size: 28px;
+}
+
+.card img {
+    width: 200px;
+    margin-top: 20px;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+    $("#update").click(function(){
+
+        $(".card").css("background-color", $("#bgcolor").val());
+        $(".card").css("font-family", $("#font").val());
+        $(".card h1").css("font-size", $("#fontsize").val() + "px");
+
+        var borderStyle = $("input[name='border']:checked").val();
+        if(borderStyle == "none") {
+            $(".card").css("border", "none");
+        } else {
+            $(".card").css("border", "5px " + borderStyle + " black");
+        }
+
+        $("#message").text($("#text").val());
+
+        if($("#pic").is(":checked")) {
+            $("#cake").show();
+        } else {
+            $("#cake").hide();
+        }
+    });
+});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="controls">
+
+        <label>Choose a background color:</label>
+        <select id="bgcolor">
+            <option value="yellow">Yellow</option>
+            <option value="pink">Pink</option>
+            <option value="lightblue">Light Blue</option>
+        </select>
+
+        <label>Choose a font:</label>
+        <select id="font">
+            <option value="Verdana">Verdana</option>
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+        </select>
+
+        <label>Specify a numeric font size:</label>
+        <input type="text" id="fontsize" value="25">
+
+        <label>Choose a border style:</label>
+        <input type="radio" name="border" value="none"> None<br>
+        <input type="radio" name="border" value="double" checked> Double<br>
+        <input type="radio" name="border" value="solid"> Solid
+
+        <br><br>
+        <input type="checkbox" id="pic" checked> Add the Default Picture
+
+        <label>Enter the greeting text below:</label>
+        <textarea id="text">Happy Birthday, and many more</textarea>
+
+        <button id="update">Update</button>
+
+    </div>
+
+    <!-- RIGHT CARD -->
+    <div class="card">
+        <h1 id="message">Happy Birthday, and many more</h1>
+        <img id="cake" src="cake.jpeg" alt="Cake Image">
+    </div>
+
+</div>
+
+</body>
+</html>

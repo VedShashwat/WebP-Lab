@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Second Page - Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .label-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            margin-top: 12px;
+        }
+        .label-value {
+            font-size: 18px;
+            color: #2c7be5;
+            margin: 4px 0 12px 0;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 15px 0;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        .btn-back:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Details - Second Page</h1>
+    <div class="info-card">
+        <p class="label-title">Name:</p>
+        <p class="label-value">{{ name }}</p>
+        <hr>
+        <p class="label-title">Roll Number:</p>
+        <p class="label-value">{{ roll }}</p>
+        <hr>
+        <p class="label-title">Subject:</p>
+        <p class="label-value">{{ subject }}</p>
+
+        <a href="/session/" class="btn-back">&larr; Back to First Page</a>
+    </div>
+</body>
+</html>
